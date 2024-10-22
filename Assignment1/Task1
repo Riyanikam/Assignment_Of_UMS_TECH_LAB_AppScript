@@ -1,1 +1,18 @@
+//Write a function to find the reverse of a number and print using logger. Also, print the result in Stackdrive logs.
+function reverseNumber(n) {
+  var revnum=0;
+  while (n!==0) {
+    var dig=n%10;
+    revnum=revnum*10+dig;
+    n=Math.floor(n/10); 
+  }
+  return revnum;
+}
+
+function testReverseNumber(){
+  var numberToReverse=12345;  
+  var reversedNumber=reverseNumber(numberToReverse);  
+
+  Logger.log('The reverse number is  is ' +reversedNumber);
+}
 
