@@ -1,0 +1,116 @@
+// Function to create a custom menu in the spreadsheet
+function onOpen(){
+  var ui=SpreadsheetApp.getUi(); 
+  ui.createMenu('Email Menu') 
+    .addItem('Send Mail','sendEmail') 
+    .addToUi(); 
+}
+
+// Function for sending the mail and showing alert in the spreadsheet
+function sendEmail(){
+  var recipient='nikamyogita718@gmail.com'; 
+  var subject='Send the mail from Google Sheets';  
+  var body='Hello, Good Morning.'; 
+  var cc='ynikam408@gmail.com'; 
+  var bcc='ynikam408@gmail.com';
+
+  // Use the MailApp to send the mail
+  MailApp.sendEmail({
+    to:recipient,
+    subject:subject,
+    body:body,
+    cc:cc,
+    bcc:bcc
+  });
+
+  // Show an alert in the Google Sheets UI
+  SpreadsheetApp.getUi().alert('Email sent to'+ recipient);
+}
+
+/*//THIS IS A STATIC FUNCTION 
+// Here is a function to create a custom menu in the spreadsheet
+function onOpen(){
+  var ui=SpreadsheetApp.getUi(); 
+  ui.createMenu('Email Menu') 
+    .addItem('Send Mail','sendEmailsFromSheet').addToUi(); 
+}
+
+function MailSender(){
+  var sheet=SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data=sheet.getDataRange().getValues();
+  
+  
+  for(var i=1;i<data.length;i++){
+    var recipient=data[i][0]; 
+    var cc=data[i][1]; 
+    var bcc=data[i][2]; 
+    var subject=data[i][3]; 
+    var body=data[i][4]; 
+    var status=data[i][5];
+    
+    if(status===''){
+      MailApp.sendEmail({to:recipient,subject:subject,body:body,cc:cc,bcc:bcc});
+      sheet.getRange(i+1,6).setValue('Mail Sent');
+    }
+  }
+}
+*/
+
+// Function to create a custom menu in the spreadsheet
+function onOpen(){
+  var ui=SpreadsheetApp.getUi(); 
+  ui.createMenu('Email Menu') 
+    .addItem('Send Mail','sendEmail') 
+    .addToUi(); 
+}
+
+// Function for sending the mail and showing alert in the spreadsheet
+function sendEmail(){
+  var recipient='nikamyogita718@gmail.com'; 
+  var subject='Send the mail from Google Sheets';  
+  var body='Hello, Good Morning.'; 
+  var cc='ynikam408@gmail.com'; 
+  var bcc='ynikam408@gmail.com';
+
+  // Use the MailApp to send the mail
+  MailApp.sendEmail({
+    to:recipient,
+    subject:subject,
+    body:body,
+    cc:cc,
+    bcc:bcc
+  });
+
+  // Show an alert in the Google Sheets UI
+  SpreadsheetApp.getUi().alert('Email sent to'+ recipient);
+}
+
+/*//THIS IS A STATIC FUNCTION 
+// Here is a function to create a custom menu in the spreadsheet
+function onOpen(){
+  var ui=SpreadsheetApp.getUi(); 
+  ui.createMenu('Email Menu') 
+    .addItem('Send Mail','sendEmailsFromSheet').addToUi(); 
+}
+
+function MailSender(){
+  var sheet=SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data=sheet.getDataRange().getValues();
+  
+  
+  for(var i=1;i<data.length;i++){
+    var recipient=data[i][0]; 
+    var cc=data[i][1]; 
+    var bcc=data[i][2]; 
+    var subject=data[i][3]; 
+    var body=data[i][4]; 
+    var status=data[i][5];
+    
+    if(status===''){
+      MailApp.sendEmail({to:recipient,subject:subject,body:body,cc:cc,bcc:bcc});
+      sheet.getRange(i+1,6).setValue('Mail Sent');
+    }
+  }
+}
+*/
+
