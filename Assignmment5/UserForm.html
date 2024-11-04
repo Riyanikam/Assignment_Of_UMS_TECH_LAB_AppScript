@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <form id="reportForm">
+      <label for="startDate">Start Date:</label><br>
+      <input type="date" id="startDate" name="startDate" required><br><br>
+
+      <label for="endDate">End Date:</label><br>
+      <input type="date" id="endDate" name="endDate" required><br><br>
+
+      <input type="button" value="Generate Report" onclick="submitReportForm()">
+    </form>
+    <script>
+      function submitReportForm() {
+        var formData={
+          startDate:document.getElementById("startDate").value,endDate:document.getElementById("endDate").value
+        };
+        google.script.run.filterDataByDate(formData);
+        google.script.host.close();
+      }
+    </script>
+  </body>
+</html>
